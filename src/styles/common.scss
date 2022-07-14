@@ -1,0 +1,1224 @@
+@import '_variables.scss';
+@import '_mixin.scss';
+
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: local('Roboto-Bold'),
+    url(../fonts/roboto-bold-webfont.woff2) format('woff2'),
+    url(../fonts/roboto-bold-webfont.woff) format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: local('Roboto-Regular'),
+    url(../fonts/roboto-regular-webfont.woff2) format('woff2'),
+    url(../fonts/roboto-regular-webfont.woff) format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap
+}
+
+@font-face {
+  font-family: 'TT-Firs-Neue';
+  src: local('TT-Firs-Neue-Regular'),
+    url(../fonts/ttfirsneue-regular-webfont.woff2) format('woff2'),
+    url(../fonts/ttfirsneue-regular-webfont.woff) format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap
+}
+
+@font-face {
+  font-family: 'TT-Firs-Neue';
+  src: local('TT-Firs-Neue-Bold'),
+    url(../fonts/ttfirsneue-bold-webfont.woff2) format('woff2'),
+    url(../fonts/ttfirsneue-bold-webfont.woff) format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap
+}
+
+@font-face {
+  font-family: 'TT-Firs-Neue';
+  src: local('TT-Firs-Neue-Medium'),
+    url(../fonts/ttfirsneue-medium-webfont.woff2) format('woff2'),
+    url(../fonts/ttfirsneue-medium-webfont.woff) format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  font-family: "TT-Firs-Neue", sans-serif;
+}
+
+img {
+  max-width: 100%;
+}
+
+.header {
+  align-items: center;
+  justify-content: stretch;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: $backgroundColor;
+
+
+  &__bottom {
+    display: none;
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: $containerMaxWidth;
+    margin: 0 auto;
+    padding: 22px $containerPadding;
+    position: relative;
+  }
+
+  &__logo {
+    flex-shrink: 0;
+    margin-right: 48px;
+  }
+
+  &__list {
+    display: flex;
+    @include clearListStyles;
+  }
+
+  &__item {
+    position: relative;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+    color: #FFFFFF;
+
+    &:not(:last-child) {
+      margin-right: 79px;
+    }
+  }
+
+  &__link-descr {
+    position: relative;
+    margin: 0;
+    z-index: 2;
+  }
+
+  &__link {
+    width: 100%;
+    height: 100%;
+    transition: color .3s ease;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 110%;
+      height: 105%;
+      top: 0;
+      left: -4px;
+      right: -5px;
+      bottom: 0;
+      background: $backgroundColorFocus;
+      opacity: 0;
+      transition: opacity .3s ease;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus:not(:hover):not(:active)::before {
+      opacity: 1;
+    }
+
+    &:hover {
+      color: $colorTextHover;
+    }
+
+    &:active {
+      color: $colorTextActive;
+    }
+  }
+
+
+  &__search-btn {
+    display: block;
+    @include btnReset;
+    margin-left: 102px;
+
+    & path {
+      transition: fill .3s ease;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus path {
+      fill: $backgroundColorFocus;
+    }
+
+    &:hover path {
+      fill: $colorTextHover;
+    }
+
+    &:active path {
+      fill: $colorTextActive;
+    }
+  }
+
+  &__search-window {
+    display: none;
+  }
+
+  &__search-window.open {
+    display: flex;
+    position: absolute;
+    padding-bottom: 4px;
+    width: 100%;
+    max-width: 342px;
+    min-height: 30px;
+    bottom: 23px;
+    right: 75px;
+    z-index: 4;
+    background-color: $backgroundColor;
+    animation-name: searchOpen;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+  }
+
+  &__search-window.open.hidden {
+    animation-name: searchClose;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+  }
+
+  @keyframes searchOpen {
+
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+
+  }
+
+  @keyframes searchClose {
+
+    from {
+      opacity: 1;
+    }
+
+    to {
+      opacity: 0;
+    }
+
+  }
+
+
+
+  &__label {
+    @include labelReset;
+  }
+
+  &__close-btn {
+    @include btnReset;
+    margin-left: auto;
+
+    & circle {
+      transition: fill .3s ease;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus:not(:active):not(:hover) circle {
+      fill: $backgroundColorFocus;
+    }
+
+    &:hover circle {
+      fill: $colorTextActive;
+    }
+
+    &:active circle {
+      fill: #CACACA;
+    }
+  }
+
+  &__search-input {
+    padding: 0;
+    width: 100%;
+    max-width: 308px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #E9E9E9;
+    font-family: 'TT-Firs-Neue';
+    color: #E9E9E9;
+    transition: border .4s ease;
+
+    &::placeholder {
+      font-family: 'TT-Firs-Neue';
+      font-size: 14px;
+      line-height: 18px;
+      color: #E9E9E9;
+    }
+
+    &:focus {
+      outline: none;
+      border-bottom: 1px solid $colorTextHover;
+    }
+
+    &:hover {
+      outline: none;
+      border-bottom: 1px solid $colorTextHover;
+    }
+
+    &:active {
+      outline: none;
+      border-bottom: 1px solid $colorTextActive;
+    }
+  }
+
+
+
+  &__burger-btn {
+    display: none;
+    cursor: pointer;
+
+    & rect {
+      transition: fill .3s ease;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus rect {
+      fill: $backgroundColorFocus;
+    }
+
+    &:hover rect {
+      fill: $colorTextHover;
+    }
+
+    &:active rect {
+      fill: $colorTextActive;
+    }
+  }
+
+  &__menu-close-btn {
+    @include btnReset;
+    display: none;
+  }
+
+  &__tel {
+    display: none;
+  }
+
+
+}
+
+.hero {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+  &__container {
+    width: 100%;
+    max-width: $containerMaxWidth;
+    margin: 0 auto;
+    padding: 0 $containerPadding;
+  }
+
+  &__item {
+    @include backgroundImage;
+  }
+
+  .grid1 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    min-height: 630px;
+    padding: 407px 60px 60px 60px;
+    background-image: url('../img/hero1.jpg');
+  }
+
+  &__link {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+
+  &__descr {
+    display: block;
+    margin: 0;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #FFFFFF;
+  }
+
+  &__title {
+    margin: 0;
+    margin-bottom: 21px;
+    max-width: 427px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 104%;
+    color: #FFFFFF;
+
+  }
+
+  &__btn {
+    display: block;
+    justify-self: start;
+    align-self: flex-start;
+    @include btnStyle;
+    cursor: pointer;
+    transition: outline .3s ease, background-color .3s ease;
+
+    &:focus:not(:hover):not(:active) {
+      outline: 3px solid $colorTextActive;
+    }
+
+    &:hover {
+      background-color: $backgroundColorFocus;
+    }
+
+    &:active {
+      background-color: $colorTextActive;
+    }
+  }
+
+  &__card2 {
+    width: 100%;
+    min-height: 350px;
+  }
+
+  &__title2 {
+    margin: 0;
+    margin-bottom: 24px;
+    padding-top: 10px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 12px;
+    color: #202020;
+  }
+
+
+  &__img2 {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    object-fit: cover;
+  }
+
+
+  .grid3 {
+    min-height: 257px;
+    background-image: url('../img/hero3.jpg');
+  }
+
+  .grid4 {
+    min-height: 257px;
+    background-image: url('../img/hero4.jpg');
+  }
+
+}
+
+.about-us {
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 27px 0 69px 0;
+  background: $backgroundColor;
+
+  &__container {
+    width: 100%;
+    max-width: $containerMaxWidth;
+    margin: 0 auto;
+    padding: 0 $containerPadding;
+  }
+
+  &__title {
+    margin: 0;
+    margin-bottom: 5px;
+    align-self: start;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+    color: #FFFFFF;
+  }
+
+  .grid1 {
+    min-height: 364px;
+  }
+
+  &__descr {
+    margin: 0;
+    font-style: normal;
+    font-family: 'Roboto';
+    letter-spacing: 0.21px;
+    font-weight: 400;
+    font-size: 15.6px;
+    line-height: 28px;
+    color: #CACACA;
+  }
+
+  .grid2 {
+    min-height: 255px;
+  }
+
+  &__img {
+    @include backgroundImage;
+    background-image: url('../img/about-us.jpg');
+  }
+
+  .grid3 {
+    min-height: 88px;
+  }
+
+  &__input-wrap {
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    width: auto;
+    height: auto;
+  }
+
+  &__label {
+    display: block;
+    margin: 0;
+    margin-bottom: 16px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 20px;
+    color: #FFFFFF;
+  }
+
+  &__input {
+    padding: 15px 23px;
+    margin-right: 28px;
+    width: 474px;
+    height: 50px;
+    background: #4A4A4A;
+    border: none;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #FFFFFF;
+    transition: outline .3s ease;
+
+    &::placeholder {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 19px;
+      color: #CACACA;
+      transition: color .3s ease;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus:not(:hover):not(:active) {
+      outline: 1px solid $colorTextHover;
+    }
+
+    &:hover::placeholder {
+      color: $colorTextHover;
+    }
+  }
+
+  &__btn {
+    @include btnStyle;
+    cursor: pointer;
+    transition: outline .3s ease, background-color .3s ease;
+
+    &:focus:not(:hover):not(:active) {
+      outline: 3px solid $colorTextActive;
+    }
+
+    &:hover {
+      background-color: $backgroundColorFocus;
+    }
+
+    &:active {
+      background-color: $colorTextActive;
+    }
+  }
+}
+
+.projects {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+  &__container {
+    width: 100%;
+    max-width: $containerMaxWidth;
+    margin: 0 auto;
+    padding: 0 $containerPadding;
+  }
+
+  &__title {
+    margin: 0;
+    margin-bottom: 14px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    color: #202020;
+  }
+
+  &__item {
+    @include backgroundImage;
+  }
+
+  &__card-img1 {
+    position: relative;
+    min-height: 184px;
+    @include backgroundImage;
+    background-image: url('../img/projects1.jpg');
+  }
+
+  &__link {
+    position: absolute;
+    top: 5px;
+    right: 7px;
+  }
+
+  &__card-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__card-descr {
+    margin: 0;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: #202020;
+  }
+
+  &__card-descr4 {
+    margin: 0;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: #202020;
+  }
+
+  &__card-descr1024 {
+    display: none;
+  }
+
+  &__card-descr-span {
+    display: none;
+  }
+
+  &__calendar {
+    display: flex;
+    align-items: center;
+    margin-top: auto;
+  }
+
+  &__calendar1 {
+    display: flex;
+    align-items: center;
+  }
+
+  &__calendar-img {
+    margin-right: 5px;
+  }
+
+  &__calendar-descr {
+    display: inline;
+    margin: 0;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 22px;
+    color: #999999;
+  }
+
+  &__calendar-descr1 {
+    display: inline;
+    margin: 0;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 22px;
+    color: #FFFFFF;
+  }
+
+
+  &__card-img2 {
+    position: relative;
+    min-height: 184px;
+    @include backgroundImage;
+    background-image: url('../img/projects2.jpg');
+  }
+
+  &__card-img3 {
+    position: relative;
+    min-height: 184px;
+    @include backgroundImage;
+    background-image: url('../img/projects3.jpg');
+  }
+
+
+  .grid2 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 22px 30px 30px 30px;
+    background-image: url('../img/projects4.jpg');
+  }
+
+  .grid3 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 22px 30px 30px 30px;
+    background-image: url('../img/projects5.jpg');
+  }
+
+  &__item-title {
+    margin: 0;
+    margin-bottom: 6px;
+    max-width: 292px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 24px;
+    color: #FFFFFF;
+  }
+
+  &__item-descr {
+    margin: 0;
+    max-width: 292px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: #FFFFFF;
+  }
+
+  &__btn {
+    margin-top: auto;
+    align-self: start;
+    @include btnTransparentStyle;
+    cursor: pointer;
+    transition: border .3s ease, background-color .3s ease;
+
+    &:focus:not(:hover):not(:active) {
+      outline: none;
+      border: 3px solid $colorTextHover;
+      background-color: $backgroundColorFocus;
+    }
+
+    &:hover {
+      background-color: $colorTextHover;
+    }
+
+    &:active {
+      background-color: $colorTextActive;
+    }
+  }
+
+  &__card-img6 {
+    width: 100%;
+    min-height: 184px;
+    position: relative;
+    @include backgroundImage;
+    background-image: url('../img/projects6.jpg');
+  }
+
+  &__card-img7 {
+    width: 100%;
+    min-height: 184px;
+    position: relative;
+    @include backgroundImage;
+    background-image: url('../img/projects7.jpg');
+  }
+
+  &__item4 {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__card-text4 {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    height: 100%;
+    padding-top: 18px;
+
+  }
+
+}
+
+[class*="ground-pane"] {
+  filter: grayscale(1);
+}
+
+.contacts {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 29px;
+
+  &__container {
+    width: 100%;
+    max-width: $containerMaxWidth;
+    margin: 0 auto;
+    padding: 0 $containerPadding;
+  }
+
+  &__title {
+    margin: 0;
+    margin-bottom: 22px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 31px;
+    color: #202020;
+  }
+
+  &__map {
+    position: relative;
+    width: 850px;
+    min-height: 460px;
+  }
+
+  &__address-block {
+    position: absolute;
+    padding: 175px 50px 146px 60px;
+    width: 100%;
+    max-width: 410px;
+    min-height: 460px;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    background: rgba(32, 32, 32, 0.85);
+  }
+
+  &__address-block.closed {
+    display: none;
+  }
+
+
+  &__name {
+    margin: 0;
+    margin-bottom: 5px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 22px;
+    color: #FFFFFF;
+  }
+
+  &__close-btn {
+    position: absolute;
+    @include btnReset;
+    top: 20px;
+    right: 20px;
+    z-index: 10;
+
+    & circle {
+      transition: fill .3s ease;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus:not(:active):not(:hover) circle {
+      fill: $backgroundColorFocus;
+    }
+
+    &:hover circle {
+      fill: $colorTextHover;
+    }
+
+    &:active circle {
+      fill: $colorTextActive;
+    }
+
+  }
+
+  &__open-btn {
+    @include btnReset;
+    position: absolute;
+    bottom: 20px;
+    right: 10px;
+    padding: 10px 15px;
+    background: rgba(32, 32, 32, 0.85);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 22px;
+    color: #FFFFFF;
+    z-index: 10;
+    transition: background-color .3s ease;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus:not(:active):not(:hover) {
+      background-color: $backgroundColorFocus;
+    }
+
+    &:hover {
+      background-color: $colorTextHover;
+    }
+
+    &:active {
+      background-color: $colorTextActive;
+    }
+  }
+
+  &__open-btn.closed {
+    display: none;
+  }
+
+  &__address {
+    margin: 0;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    margin-bottom: -3px;
+    line-height: 28px;
+    color: #CACACA;
+  }
+
+  &__tel {
+    font-style: normal;
+    font-weight: 400;
+    margin-left: -2px;
+    font-size: 15px;
+    line-height: 28px;
+    color: #FFFFFF;
+    letter-spacing: -0.6px;
+  }
+
+  &__tel svg {
+    vertical-align: middle;
+  }
+
+  &__tel1 {
+    display: none;
+  }
+
+  &__form-title {
+    margin: 0;
+    margin-bottom: 12px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 8px;
+    color: #202020;
+  }
+
+  &__form-descr {
+    margin: 0;
+    margin-bottom: 14px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: #999999;
+  }
+
+  &__form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  &__input-wrap {
+    position: relative;
+
+    width: auto;
+    height: auto;
+  }
+
+  &__label {
+    @include labelReset;
+  }
+
+
+  &__input {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 15px 23px;
+    border: none;
+    background: #E9E9E9;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #202020;
+    transition: outline .3s ease;
+
+    &::placeholder {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 19px;
+      color: #999999;
+      transition: color .3s ease;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus:not(:hover):not(:active) {
+      outline: 1px solid $colorTextHover;
+    }
+
+    &:hover::placeholder {
+      color: $colorTextHover;
+    }
+  }
+
+  &__textarea {
+    width: 100%;
+    min-height: 150px;
+    margin-bottom: 20px;
+    padding: 15px 23px;
+    border: none;
+    background: #E9E9E9;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #202020;
+    resize: none;
+    transition: outline .3s ease;
+
+    &::placeholder {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 19px;
+      color: #999999;
+      transition: color .3s ease;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus:not(:hover):not(:active) {
+      outline: 1px solid $colorTextHover;
+    }
+
+    &:hover::placeholder {
+      color: $colorTextHover;
+    }
+  }
+
+  &__btn {
+    @include btnStyle;
+    align-self: flex-start;
+    cursor: pointer;
+    transition: outline .3s ease, background-color .3s ease;
+
+    &:focus:not(:hover):not(:active) {
+      outline: 3px solid $colorTextActive;
+    }
+
+    &:hover {
+      background-color: $backgroundColorFocus;
+    }
+
+    &:active {
+      background-color: $colorTextActive;
+    }
+
+  }
+}
+
+.js-validate-error-label {
+  padding-left: 23px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 9px;
+  line-height: 11px;
+  color: #FF3030;
+}
+
+
+.footer {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: $backgroundColor;
+
+  &__container {
+    display: flex;
+    width: 100%;
+    max-width: $containerMaxWidth;
+    margin: 0 auto;
+    padding: 25px $containerPadding 16px;
+  }
+
+  &__logo-block {
+    display: flex;
+    flex-direction: column;
+    margin-right: 205px;
+  }
+
+  &__span {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: #E9E9E9;
+  }
+
+  &__descr {
+    margin-top: -4px;
+    display: flex;
+    flex-direction: column;
+    max-width: 360px;
+  }
+
+  &__text {
+    margin: 0;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: #CACACA;
+  }
+
+  &__text-span {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    opacity: .5;
+    color: #CACACA;
+  }
+
+  &__social {
+    margin-left: auto;
+    margin-top: -3px;
+  }
+
+  &__social-descr {
+    margin: 0;
+    margin-bottom: 8px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: #CACACA;
+  }
+
+
+  &__social-list {
+    display: flex;
+    justify-content: center;
+    @include clearListStyles;
+  }
+
+  &__social-item {
+    display: block;
+
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+
+  &__social-link {
+    & path {
+      transition: fill .3s ease;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus path {
+      fill: $backgroundColorFocus;
+    }
+
+    &:hover path {
+      fill: $colorTextHover;
+    }
+
+    &:active path {
+      fill: $colorTextActive;
+    }
+  }
+
+
+}

@@ -1,0 +1,390 @@
+@import '_variables.scss';
+@import '_mixin.scss';
+
+.header {
+  grid-area: header;
+}
+
+.main {
+  grid-area: main;
+}
+
+.footer {
+  grid-area: footer;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: minmax(300px, 1fr);
+  grid-template-rows: auto 1fr auto;
+  gap: $mainGridGatter;
+  height: 100vh;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+}
+
+@media (max-width: 1500px) {
+  body {
+    gap: $mainGridGatter1024;
+  }
+}
+
+@media (max-width: 760px) {
+  body {
+    gap: $gridGatter320;
+  }
+}
+
+
+
+@media (max-width:1020px) {
+
+  .header {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 80px 45px;
+    grid-template-areas:
+      "grid-header1"
+      "grid-header2";
+
+    .grid-header1 {
+      grid-area: grid-header1;
+    }
+
+    .grid-header2 {
+      grid-area: grid-header2;
+    }
+
+  }
+}
+
+@media (max-width:760px) {
+  .header {
+    grid-template-rows: 70px 45px;
+  }
+}
+
+@media (max-width: 580px) {
+  .footer__container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 123px 62px;
+    grid-template-areas:
+      "grid-footer2"
+      "grid-footer1";
+
+
+    .grid-footer1 {
+      grid-area: grid-footer1;
+    }
+
+    .grid-footer2 {
+      grid-area: grid-footer2;
+    }
+
+  }
+}
+
+.hero {
+  grid-area: hero;
+}
+
+.about-us {
+  grid-area: about-us;
+}
+
+.projects {
+  grid-area: projects;
+}
+
+.contacts {
+  grid-area: contacts;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: minmax(300px, 1fr);
+  grid-template-rows: auto auto auto auto;
+  gap: $gridGatter;
+  grid-template-areas:
+    "hero"
+    "about-us"
+    "projects"
+    "contacts";
+}
+
+@media  (max-width: 580px) {
+  .main {
+    gap: 50px;
+  }
+}
+
+.hero__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: minmax(240px, auto) minmax(105px, auto);
+  gap: 23px $sectionGridGatter;
+  grid-template-areas:
+    "grid1 grid1 grid2 grid2"
+    "grid1 grid1 grid3 grid4";
+
+  .grid1 {
+    grid-area: grid1;
+  }
+
+  .grid2 {
+    grid-area: grid2;
+  }
+
+  .grid3 {
+    grid-area: grid3;
+  }
+
+  .grid4 {
+    grid-area: grid4;
+  }
+
+}
+
+@media (max-width: 1500px) {
+  .hero__container {
+    gap: 30px $sectionGridGatter;
+  }
+}
+
+@media (max-width: 760px) {
+  .hero__container {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+      "grid1 grid1"
+      "grid2 grid2"
+      "grid3 grid4";
+  }
+}
+
+
+.about-us__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 25px 30px;
+  grid-template-areas:
+    "grid1 grid2"
+    "grid1 grid3";
+
+
+  .grid1 {
+    grid-area: grid1;
+  }
+
+  .grid2 {
+    grid-area: grid2;
+  }
+
+  .grid3 {
+    grid-area: grid3;
+  }
+
+}
+
+@media (max-width: 760px) {
+  .about-us__grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    row-gap: 24px;
+    grid-template-areas:
+      "grid1"
+      "grid2"
+      "grid3";
+
+  }
+
+}
+
+.projects__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 300px 300px;
+  gap: $sectionGridGatter;
+  grid-template-areas:
+    "grid1 grid1 grid2 grid2"
+    "grid3 grid3 grid4 grid5";
+
+
+  .grid1 {
+    grid-area: grid1;
+  }
+
+  .grid2 {
+    grid-area: grid2;
+  }
+
+  .grid3 {
+    grid-area: grid3;
+  }
+
+  .grid4 {
+    grid-area: grid4;
+  }
+
+  .grid5 {
+    grid-area: grid5;
+  }
+
+}
+
+@media(max-width: 1500px) {
+  .projects__grid {
+    grid-template-columns: 342px 1fr 342px;
+    grid-template-rows: auto auto auto;
+    gap: 24px 30px;
+    grid-template-areas:
+      "grid1 grid1 grid1"
+      "grid2 grid2 grid4"
+      "grid5 grid3 grid3";
+  }
+
+}
+
+@media(max-width: 1020px) {
+  .projects__grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 300px minmax(300px, auto) minmax(300px, auto) minmax(300px, auto);
+    gap: 25px 30px;
+    grid-template-areas:
+      "grid1 grid1"
+      "grid2 grid2"
+      "grid4 grid5"
+      "grid3 grid3";
+  }
+
+}
+
+@media(max-width: 760px) {
+  .projects__grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto minmax(300px, auto) minmax(300px, auto) auto;
+    gap: 20px;
+    grid-template-areas:
+      "grid1"
+      "grid2"
+      "grid4"
+      "grid5"
+      "grid3";
+  }
+}
+
+
+.projects__item1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 184px 98px;
+  gap: 18px 30px;
+  grid-template-areas:
+    "item-grid1 item-grid2 item-grid3"
+    "item-grid4 item-grid5 item-grid6";
+
+
+  .item-grid1 {
+    grid-area: item-grid1;
+  }
+
+  .item-grid2 {
+    grid-area: item-grid2;
+  }
+
+  .item-grid3 {
+    grid-area: item-grid3;
+  }
+
+  .item-grid4 {
+    grid-area: item-grid4;
+  }
+
+  .item-grid5 {
+    grid-area: item-grid5;
+  }
+
+  .item-grid6 {
+    grid-area: item-grid6;
+  }
+
+}
+
+@media(max-width: 1500px) {
+  .projects__item1 {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 184px auto;
+    gap: 18px 30px;
+    grid-template-areas:
+      "item-grid1 item-grid2 item-grid3 item-grid3"
+      "item-grid4 item-grid5 item-grid6 item-grid6";
+  }
+}
+
+@media(max-width: 1020px) {
+  .projects__item1 {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 184px auto;
+    gap: 18px 30px;
+    grid-template-areas:
+      "item-grid1 item-grid2 item-grid3"
+      "item-grid4 item-grid5 item-grid6";
+  }
+}
+
+@media(max-width: 760px) {
+  .projects__item1 {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto auto auto;
+    gap: 18px;
+    grid-template-areas:
+      "item-grid1"
+      "item-grid4"
+      "item-grid2"
+      "item-grid5"
+      "item-grid3"
+      "item-grid6";
+  }
+}
+
+
+.contacts__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 460px;
+  gap: $sectionGridGatter;
+  grid-template-areas:
+    "item-grid1 item-grid2";
+
+  .item-grid1 {
+    grid-area: item-grid1;
+  }
+
+  .item-grid2 {
+    grid-area: item-grid2;
+  }
+
+}
+
+@media(max-width:1020px) {
+  .contacts__grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      "item-grid1"
+      "item-grid2";
+  }
+
+}
+
+@media(max-width: 580px) {
+  .contacts__grid {
+    gap: 21px;
+  }
+}

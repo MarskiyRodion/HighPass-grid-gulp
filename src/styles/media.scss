@@ -1,0 +1,1084 @@
+@import '_variables.scss';
+@import '_mixin.scss';
+
+@media (max-width: 1500px) {
+
+  .header {
+    &__container {
+      padding: 24px $containerPadding1024;
+      justify-content: space-between;
+    }
+
+    &__item {
+      &:not(:last-child) {
+        margin-right: 33px;
+      }
+    }
+
+    &__logo {
+      margin-right: 52px;
+    }
+
+    &__search-window.open {
+      right: 30px;
+    }
+
+  }
+
+  .hero {
+    &__container {
+      padding: 0 $containerPadding1024;
+    }
+
+    .grid1 {
+      min-height: 623px;
+      padding: 425px 30px 30px 30px;
+      background-image: url('../img/hero1-1024.jpg');
+    }
+
+    &__descr {
+      margin-bottom: 8px;
+      font-size: 15px;
+    }
+
+    &__title {
+      font-size: 34px;
+      line-height: 100%;
+    }
+
+    &__title2 {
+      padding-top: 0px;
+      margin-bottom: 27px;
+      line-height: 24px;
+    }
+
+    &__card2 {
+      min-height: 407px;
+    }
+
+    &__img2 {
+      min-height: 332px;
+    }
+
+    .grid3 {
+      min-height: 186px;
+      background-image: url('../img/hero3-1024.jpg');
+    }
+
+    .grid4 {
+      min-height: 186px;
+      background-image: url('../img/hero4-1024.jpg');
+    }
+  }
+
+  .about-us {
+    padding-bottom: 63px;
+
+    &__container {
+      padding: 0 $containerPadding1024;
+    }
+
+    &__title {
+      margin-bottom: 6px;
+    }
+
+
+    &__img {
+      background-image: url('../img/about-us-1024.jpg');
+    }
+
+    .grid1 {
+      min-height: 524px;
+    }
+
+    .grid2 {
+      min-height: 315px;
+    }
+
+    .grid3 {
+      min-height: 158px;
+    }
+
+    &__input-wrap {
+      flex-wrap: wrap;
+    }
+
+    &__label {
+      margin-bottom: 20px;
+      line-height: 14px;
+    }
+
+    &__input {
+      margin: 0;
+      margin-bottom: 20px;
+      width: 342px;
+    }
+  }
+
+  .projects {
+    &__container {
+      padding: 0 $containerPadding1024;
+    }
+
+    &__link {
+      top: 7px;
+      right: 8px;
+    }
+
+
+    &__card-img1 {
+      height: 184px;
+      background-image: url('../img/projects1-1024.jpg');
+      background-size: contain;
+    }
+
+    &__card-img2 {
+      height: 184px;
+      background-image: url('../img/projects2-1024.jpg');
+      background-size: contain;
+    }
+
+    &__card-img3 {
+      height: 184px;
+      background-image: url('../img/projects3-1024.jpg');
+      background-size: contain;
+    }
+
+    &__card-descr {
+      display: none;
+    }
+
+    &__card-descr4 {
+      margin-bottom: 16px;
+    }
+
+    &__card-descr1024 {
+      display: inline;
+      margin: 0;
+      margin-bottom: 17px;
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 22px;
+      color: #202020;
+    }
+
+    .grid2 {
+      padding-top: 30px;
+      padding-bottom: 38px;
+      background-image: url('../img/projects4-1024.jpg');
+    }
+
+    .grid3 {
+      padding: 30px 30px 30px 30px;
+      background-image: url('../img/projects5-1024.jpg');
+    }
+
+    &__card-img6 {
+      background-image: url('../img/projects6-1024.jpg');
+    }
+
+    &__card-img7 {
+      background-image: url('../img/projects7-1024.jpg');
+    }
+  }
+
+  .contacts {
+    padding-bottom: 33px;
+
+    &__container {
+      padding: 0 $containerPadding1024;
+
+    }
+
+    &__map {
+      width: 590px;
+      min-height: 460px;
+    }
+
+    &__address-block {
+      top: auto;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 25px 250px 19px 30px;
+      max-width: 100%;
+      min-height: 157px;
+    }
+
+
+    &__address {
+      display: inline-block;
+    }
+
+    &__tel1 {
+      display: inline-block;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 28px;
+      color: #FF6E30;
+    }
+
+    &__tel {
+      display: none;
+    }
+
+    &__tel1 path {
+      fill: #FF6E30;
+    }
+  }
+
+  .footer {
+    &__container {
+      align-items: center;
+      padding: 26px $containerPadding1024 20px;
+    }
+
+    &__logo-block {
+      margin-right: 139px;
+    }
+
+    &__logo-link {
+      margin-bottom: 3px;
+    }
+
+    &__descr {
+      margin-top: -1px;
+    }
+  }
+
+}
+
+@media (max-width: 1020px) {
+
+  .header {
+    &__container {
+      position: relative;
+    }
+
+    &__container1 {
+      width: 100%;
+      max-width: $containerMaxWidth;
+      margin: 0 auto;
+      padding: 0 $containerPadding768;
+    }
+
+    &__bottom {
+      display: block;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      min-height: 45px;
+      background-color: #4A4A4A;
+    }
+
+    &__nav {
+      position: absolute;
+
+      padding: 12px $containerPadding768;
+      width: 100%;
+      bottom: -46px;
+      left: 0;
+      right: 0;
+    }
+
+    &__list {
+      display: flex;
+      justify-content: space-between;
+
+    }
+  }
+
+  .hero {
+    &__container {
+      padding: 0 $containerPadding768;
+    }
+
+    .grid1 {
+      min-height: 452px;
+      padding: 223px 30px 30px 27px;
+      background-image: url('../img/hero1-768.jpg');
+    }
+
+    &__card2 {
+      min-height: 291px;
+    }
+
+    &__descr {
+      margin-bottom: 14px;
+      font-size: 16px;
+      line-height: 19px;
+    }
+
+    &__title {
+      margin-bottom: 24px;
+      font-size: 34px;
+      line-height: 90%;
+    }
+
+    &__title2 {
+      margin-bottom: 17px;
+      font-size: 22px;
+      line-height: 104%;
+
+    }
+
+    &__img2 {
+      min-height: 228px;
+    }
+
+    .grid3 {
+      min-height: 133px;
+      background-image: url('../img/hero3-768.jpg');
+    }
+
+    .grid4 {
+      min-height: 133px;
+      background-image: url('../img/hero4-768.jpg');
+    }
+  }
+
+  .about-us {
+    padding-bottom: 51px;
+
+    &__container {
+      padding: 0 $containerPadding768;
+
+    }
+
+    &__title {
+      margin-bottom: 4px;
+    }
+
+    &__img {
+      background-image: url('../img/about-us-768.jpg');
+    }
+
+    .grid1 {
+      min-height: 769px;
+    }
+
+    .grid2 {
+      min-height: 551px;
+    }
+
+    .grid3 {
+      min-height: 158px;
+    }
+
+    &__input {
+      margin: 0;
+      margin-bottom: 20px;
+      width: 342px;
+    }
+
+    &__label {
+      margin-bottom: 22px;
+    }
+
+  }
+
+  .projects {
+    &__container {
+      padding: 0 $containerPadding768;
+    }
+
+
+    &__card-descr1024 {
+      display: none;
+    }
+
+    &__card-descr {
+      display: block;
+    }
+
+    &__card-img3 {
+      background-image: url('../img/projects3-768.jpg');
+    }
+
+    .grid2 {
+      padding-bottom: 29px;
+      // margin-bottom: 5px;
+      background-image: url('../img/projects4-768.jpg');
+    }
+
+    &__calendar1 {
+      margin-bottom: 2px;
+    }
+
+    .grid3 {
+      background-image: url('../img/projects5-768.jpg');
+    }
+
+    .grid4,
+    .grid5 {
+      padding-top: 5px;
+    }
+
+    &__card-text4 {
+      padding-bottom: 2px;
+    }
+
+  }
+
+  .contacts {
+
+    &__container {
+      padding: 0 $containerPadding768;
+    }
+
+    &__map {
+      width: 100%;
+      min-height: 460px;
+    }
+
+    &__address {
+      margin-bottom: 4px;
+    }
+
+    &__form-block {
+      max-width: 466px;
+    }
+
+    &__form-descr {
+      margin-bottom: 16px;
+    }
+
+    &__textarea {
+      margin-bottom: 16px;
+    }
+
+    &__address-block {
+      padding-top: 23px;
+    }
+
+    &__tel1 {
+      display: none;
+    }
+
+    &__tel {
+      display: block;
+      align-self: flex-start;
+      font-size: 15px;
+      line-height: 24px;
+      color: #FF6E30;
+
+      & path {
+        fill: #FF6E30;
+      }
+    }
+  }
+
+  .footer {
+    &__container {
+      padding: 26px $containerPadding768 20px;
+    }
+
+    &__descr {
+      display: none;
+    }
+  }
+}
+
+
+@media (max-width: 760px) {
+
+  .header {
+    &__container {
+      position: relative;
+      z-index: 10;
+      min-height: 70px;
+      padding: 23px $containerPadding320;
+    }
+
+    &__container1 {
+      padding-top: 13px;
+      padding-bottom: 13px;
+    }
+
+    &__search-window.open {
+      padding: 20px 18px;
+      max-width: 100%;
+      height: 70px;
+      z-index: 6;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+    }
+
+    &__search-input {
+      padding: 0;
+      height: 30px;
+    }
+
+    &__search-btn {
+      & svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    &__close-btn {
+
+      & svg {
+        width: 18px;
+        height: 18px;
+      }
+
+      & circle {
+        fill: #CACACA;
+        transition: fill .3s ease;
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      &:focus:not(:active):not(:hover) circle {
+        fill: $backgroundColorFocus;
+      }
+
+      &:hover circle {
+        fill: $colorTextHover;
+      }
+
+      &:active circle {
+        fill: $colorTextActive;
+      }
+    }
+
+    &__burger-btn {
+      display: block;
+      @include btnReset;
+    }
+
+    &__nav {
+      display: none;
+      position: fixed;
+      margin-top: 70px;
+      padding: 10px 18px 36px;
+      width: 100%;
+      min-height: 100vh;
+      height: 100%;
+      top: 0;
+      left: 0;
+    }
+
+    &__nav.open.hidden {
+      animation-name: menuClose;
+      animation-duration: 1s;
+      animation-timing-function: ease;
+    }
+
+    &__nav.open {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      height: 100%;
+      background-color: $backgroundColor;
+      border-top: 1px solid #808080;
+      z-index: 4;
+      animation-name: menuOpen;
+      animation-duration: 1s;
+      transition: opacity .5s ease-in-out;
+      animation-timing-function: ease;
+
+    }
+
+    @keyframes menuOpen {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+
+    @keyframes menuClose {
+      from {
+        opacity: 1;
+      }
+
+      to {
+        opacity: 0;
+      }
+    }
+
+    &__list {
+      display: block;
+      width: 100%;
+      max-height: 100%;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+
+    &__item {
+      &:not(:last-child) {
+        margin-right: 0;
+        margin-bottom: 30px;
+      }
+    }
+
+    &__tel {
+      display: block;
+      align-self: flex-start;
+      color: #FF6E30;
+      margin-top: auto;
+      margin-bottom: 80px;
+
+      & path {
+        fill: #FF6E30;
+      }
+    }
+
+    &__link-descr {
+      font-size: 16px;
+      line-height: 21px;
+    }
+
+    &__menu-close-btn {
+      display: block;
+      margin-bottom: 10px;
+      cursor: pointer;
+
+      & circle {
+        transition: fill .3s ease;
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      &:focus:not(:active):not(:hover) circle {
+        fill: $backgroundColorFocus;
+      }
+
+      &:hover circle {
+        fill: $colorTextHover;
+      }
+
+      &:active circle {
+        fill: $colorTextActive;
+      }
+    }
+
+
+
+
+
+  }
+
+
+  .hero {
+    .grid3 {
+      min-height: 185px;
+    }
+
+    .grid4 {
+      min-height: 185px;
+    }
+
+  }
+
+  .about-us {
+
+    &__img {
+      background-image: url('../img/about-us-320.jpg');
+    }
+
+    .grid1 {
+      min-height: auto;
+    }
+
+    .grid2 {
+      min-height: 278px;
+    }
+
+    .grid3 {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      min-height: auto;
+    }
+  }
+
+
+  .projects {
+    &__card-img1 {
+      min-height: 300px;
+      background-image: url('../img/projects1-320.jpg');
+    }
+
+    &__card-img2 {
+      min-height: 300px;
+      background-image: url('../img/projects2-320.jpg');
+    }
+
+    &__card-img3 {
+      min-height: 300px;
+      background-image: url('../img/projects3-320.jpg');
+    }
+
+    .grid2 {
+      min-height: 300px;
+      background-image: url('../img/projects4-320.jpg');
+    }
+
+    &__item-descr {
+      min-width: 100%;
+    }
+
+    .grid3 {
+      min-height: 300px;
+      background-image: url('../img/projects5-320.jpg');
+    }
+
+    &__card-img6 {
+      min-height: 300px;
+      background-image: url('../img/projects6-320.jpg');
+    }
+
+    &__card-img7 {
+      min-height: 300px;
+      background-image: url('../img/projects7-320.jpg');
+    }
+  }
+
+  .contacts {
+
+    &__map {
+      width: 100%;
+      min-height: 472px;
+    }
+
+    &__address-block {
+      min-height: 157px;
+      padding: 23px 25px 14px 20px;
+    }
+  }
+}
+
+
+@media (max-width: 580px) {
+  .header {
+
+    &__container1 {
+      padding: 13px $containerPadding320;
+    }
+  }
+
+  .hero {
+    &__container {
+      padding: 0 $containerPadding320;
+    }
+
+    &__link {
+      top: 6px;
+      right: 5px;
+    }
+
+    .grid1 {
+      min-height: 422px;
+      padding: 234px 30px 30px 28px;
+      background-image: url('../img/hero1-320.jpg');
+    }
+
+    &__card2 {
+      padding-top: 4px;
+    }
+
+    .grid3 {
+      min-height: 105px;
+      background-image: url('../img/hero3-320.jpg');
+    }
+
+    .grid4 {
+      min-height: 105px;
+      background-image: url('../img/hero4-320.jpg');
+    }
+
+    &__descr {
+      margin-bottom: 10px;
+      font-size: 14px;
+      line-height: 16px;
+    }
+
+    &__title {
+      margin-bottom: 12px;
+      font-size: 24px;
+      line-height: 110%;
+    }
+
+    &__btn {
+      padding: 12px 24px;
+      font-size: 13px;
+      line-height: 16px;
+    }
+
+    &__title2 {
+      font-size: 18px;
+      line-height: 104%;
+    }
+
+    &__card2 {
+      min-height: 240px;
+    }
+
+    &__img2 {
+      min-height: 186px;
+    }
+  }
+
+  .about-us {
+    padding-top: 31px;
+    padding-bottom: 59px;
+
+
+    &__container {
+      padding: 0 $containerPadding320;
+    }
+
+    &__title {
+      font-size: 18px;
+      line-height: 23px;
+    }
+
+    .grid1 {
+      min-height: auto;
+    }
+
+    &__descr {
+      font-size: 13.5px;
+      line-height: 25px;
+      letter-spacing: 0.22px;
+    }
+
+    .grid2 {
+      width: auto;
+      min-height: 278px;
+    }
+
+    .grid3 {
+      min-height: 138px;
+    }
+
+    &__input {
+      margin: 0;
+      margin-bottom: 20px;
+      padding: 12px 23px;
+      width: 278px;
+      height: 40px;
+      font-size: 14px;
+      line-height: 16px;
+
+      &::placeholder {
+        font-size: 14px;
+        line-height: 16px;
+      }
+
+    }
+
+    &__label {
+      margin-bottom: 16px;
+      font-size: 18px;
+      line-height: 22px;
+    }
+
+    &__btn {
+      padding: 12px 22px;
+      font-size: 13px;
+      line-height: 16px;
+    }
+
+  }
+
+  .projects {
+    &__container {
+      padding: 0 $containerPadding320;
+    }
+
+    &__title {
+      margin-bottom: 16px;
+      font-size: 18px;
+      line-height: 23px;
+    }
+
+    &__link {
+      top: 6px;
+      right: 6px;
+    }
+
+    &__card-img1,
+    &__card-img2,
+    &__card-img3 {
+      min-height: 184px;
+    }
+
+    &__card-text {
+      padding-bottom: 6px;
+    }
+
+    &__card-descr {
+      margin-bottom: 10px;
+    }
+
+    .grid2,
+    .grid3 {
+      padding: 196px 29px 30px;
+      min-height: 422px;
+    }
+
+    .grid2 {
+      margin-bottom: 8px;
+    }
+
+    .grid4 {
+      padding-top: 0;
+    }
+
+    &__calendar1 {
+      margin-bottom: 6px;
+    }
+
+    &__item-title {
+      margin-bottom: 10px;
+    }
+
+    &__item-descr {
+      margin-bottom: 16px;
+      font-size: 14px;
+      line-height: 18px;
+    }
+
+    &__card-descr4 {
+      margin-bottom: 10px;
+      margin-left: 2px;
+    }
+
+
+    &__btn {
+      padding: 10px 14px;
+      font-size: 14px;
+    }
+
+    &__card-img6,
+    &__card-img7 {
+      min-height: 184px;
+    }
+
+
+  }
+
+  .contacts {
+    padding-bottom: 21px;
+
+    &__container {
+      padding: 0 0;
+    }
+
+    &__title {
+      margin-bottom: 16px;
+      padding-left: 21px;
+      font-size: 18px;
+      line-height: 23px;
+    }
+
+    &__form-block {
+      padding: 0 $containerPadding320;
+    }
+
+    &__address-block {
+      height: 156px;
+    }
+
+    &__name {
+      margin-bottom: 13px;
+      font-size: 18px;
+      line-height: 21px;
+    }
+
+    &__address {
+      margin-bottom: 13px;
+      font-size: 14px;
+      line-height: 18px;
+    }
+
+    &__tel1 {
+      display: none;
+    }
+
+    &__tel {
+      display: block;
+      font-size: 14px;
+      line-height: 18px;
+      color: #FF6E30;
+
+      & path {
+        fill: #FF6E30;
+      }
+    }
+
+    &__form-title {
+      margin-bottom: 9px;
+      font-size: 18px;
+      line-height: 22px;
+    }
+
+    &__form-descr {
+      font-size: 14px;
+      line-height: 18px;
+    }
+
+    &__input {
+      padding: 10px 21px;
+    }
+
+    &__textarea {
+      padding: 12px 21px;
+    }
+
+    &__btn {
+      padding: 14px 21px;
+      font-size: 13px;
+      line-height: 14px;
+    }
+  }
+
+  .footer {
+    &__container {
+      padding: 0 0;
+      padding-top: 0;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &__logo-block {
+      margin: 0;
+      padding: 13px 0 13px;
+      align-items: center;
+      background: #4A4A4A;
+    }
+
+    &__social {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0;
+    }
+
+    &__social-descr {
+      margin-bottom: 9px;
+      margin-top: -3px;
+    }
+
+    &__span {
+      font-size: 10px;
+      line-height: 13px;
+    }
+  }
+}
